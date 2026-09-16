@@ -1,0 +1,6 @@
+# 构建/编辑器产物（主题本体全部提交，见 README 文件结构）
+*~
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
