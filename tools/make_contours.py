@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 Ark Endfield Loading Demo
+# SPDX-License-Identifier: GPL-2.0-or-later
 """离线烘焙 splash 用静态等高线（SVGZ 矢量，真 marching squares，不是贴图平移）。
 
 场 = 若干正负高斯凸起（有山有洼） + 三道长波正弦，与 dsh-theme-endfield 文档同构；

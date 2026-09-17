@@ -1,4 +1,6 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2026 Ark Endfield Loading Demo
+# SPDX-License-Identifier: GPL-2.0-or-later
 # Ark: Endfield Page Loading · 一键安装到当前用户主题目录（不碰你现在的 ksplashrc 选择）
 set -e
 SRC="$(cd "$(dirname "$0")" && pwd)"
