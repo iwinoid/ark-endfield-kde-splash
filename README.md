@@ -1,50 +1,59 @@
 # Ark: Endfield Page Loading
 
-Plasma 6 启动欢迎屏幕（Splash）主题：深色工业风，左侧进度轨自上而下，进度走满后品牌蓝整板自左向右扫满进桌面。
+[中文版](README.zh-CN.md)
 
-![预览](contents/previews/splash.png)
+![Built with DeepSeek Harness](https://img.shields.io/badge/built_with-DeepSeek_Harness-0068C6)
 
-## 安装
+A Plasma 6 splash screen theme with an industrial dark look: a top-down progress rail on the left edge, and a brand-blue full-screen wipe exiting to the desktop once loading completes.
+
+![Preview](contents/previews/splash.png)
+
+<img src="preview-demo.webp" width="960" alt="Animated demo: 60% in progress → full → brand-blue wipe exit (real offscreen render, 5 s loop)">
+
+## Install
 
 ```bash
 bash install.sh
 ```
 
-然后打开**系统设置 → 欢迎屏幕**，选中「Ark: Endfield Page Loading」→ 应用。注销重登看效果。
+Then open **System Settings → Splash Screen**, select "Ark: Endfield Page Loading" → Apply. Log out and back in to see it live.
 
-回滚：在同一页选回原来的主题即可（脚本不碰你现在的 `~/.config/ksplashrc` 选择）。
+Rollback: just re-select your previous theme on the same page (the script never touches your `~/.config/ksplashrc` choice).
 
-## 布局
+## Layout
 
-- **左侧**：20px 进度轨自上而下，刻度 + 百分比 + 当前阶段名缀着条尖走，进度跟随 ksplash 真实 stage（1→20% … 5→100%）
-- **右区**：Plasma 齿轮标（64% / 30% 海报站位）
-- **右下微构图**：Breeze 原生署名行 + `Experience Freedom`，位置对齐终末地官网加载页
-- **背景**：网格 + 烘焙等高线矢量底
+- **Left**: 20px top-down progress rail; tick + percentage + current stage name ride the fill tip, driven by the real ksplash stage (1→20% … 5→100%)
+- **Right**: Plasma gear mark (64% / 30% poster placement)
+- **Bottom-right micro composition**: stock Breeze credit line + `Experience Freedom`, aligned with the official Endfield site loading page
+- **Background**: grid + baked vector contour base
 
-## 自定义
+## Customize
 
-- **配色**：改 `contents/splash/Splash.qml` 顶部 `palette` —— `kde` 品牌蓝 `#0068C6`（默认）/ `valley` 谷地黄 `#fff500` / `wuling` 武陵青 `#14d0d0` / `system` 跟随系统强调色
-- **右下文案**：`Experience Freedom` 那一行；Breeze 署名行请勿改 catalog/上下文/源文，否则脱离官方译文
-- **等高线底图**：`python3 tools/make_contours.py` 重新烘焙（marching squares → SVGZ 矢量）
+- **Palette**: edit `palette` at the top of `contents/splash/Splash.qml` — `kde` brand blue `#0068C6` (default) / `valley` valley yellow `#fff500` / `wuling` Wuling teal `#14d0d0` / `system` follows the system accent color
+- **Bottom-right copy**: the `Experience Freedom` line; do not change the Breeze credit line's catalog/context/source or it detaches from the official translations
+- **Contour base**: re-bake with `python3 tools/make_contours.py` (marching squares → SVGZ vector)
 
-开发过程笔记见 [docs/dev-notes.md](docs/dev-notes.md)。
-
-## 文件结构
+## File structure
 
 ```
 ark-endfield-loading/
-├── metadata.json            # Plasma 6 包描述（Id = 目录名）
+├── metadata.json            # Plasma 6 package description (Id = directory name)
 ├── contents/
-│   ├── splash/Splash.qml    # 主题本体
-│   ├── splash/images/       # contours.svgz（自烘焙）+ Breeze 的 plasma/kde 标
-│   ├── previews/splash.png  # 设置页缩略图
-│   └── defaults             # 全局主题联动时的 ksplash 指向
-├── tools/make_contours.py   # 等高线底图烘焙脚本
-├── docs/dev-notes.md        # 开发笔记（含官网实测对照表）
-└── install.sh               # 一键安装到用户主题目录
+│   ├── splash/Splash.qml    # Theme body
+│   ├── splash/images/       # contours.svgz (self-baked) + plasma/kde marks from Breeze
+│   ├── previews/splash.png  # Settings thumbnail
+│   └── defaults             # ksplash pointer for global-theme switching
+├── preview-demo.webp        # Animated demo (real offscreen render, see above)
+├── tools/make_contours.py   # Contour base baking script
+├── .github/workflows/       # Tag-triggered store-package build attached to Releases
+├── install.sh               # One-step install into the user theme directory
+├── dist.sh                  # Build the store package (metadata.json + contents/ only)
+└── LICENSE                  # GPL-2.0-or-later full text
 ```
 
-## 许可与出处
+Local-only extras, not committed: `docs/` (dev notes), offscreen capture tools, `dist/` artifacts.
 
-- 本主题代码 GPL-2.0-or-later；`plasma.svgz` / `kde.svgz` 取自 Breeze（同许可）
-- 动效原型见 `../loader-wipe/`；设计语言参考 [dsh-theme-endfield](https://github.com/ymh0000123/dsh-theme-endfield) 与终末地官网加载页（实现均为原创，未使用官方素材）
+## License & credits
+
+- Theme code GPL-2.0-or-later; `plasma.svgz` / `kde.svgz` taken from Breeze (same license)
+- Design language references [dsh-theme-endfield](https://github.com/ymh0000123/dsh-theme-endfield) and the official Endfield site loading page (original implementation, no official assets used)
