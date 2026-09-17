@@ -8,7 +8,7 @@
             }
         ],
         "Category": "",
-        "Description": "Ark: Endfield Page Loading：左侧自上而下进度条 + 品牌蓝整板自左向右扫满（Web 原型的 QML 复刻）",
+        "Description": "Ark: Endfield Page Loading：左侧自上而下进度条 + 品牌蓝整板自左向右扫满",
         "Id": "ark-endfield-loading",
         "License": "GPL-2.0-or-later",
         "Name": "Ark: Endfield Page Loading",
